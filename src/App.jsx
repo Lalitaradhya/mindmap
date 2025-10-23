@@ -85,6 +85,13 @@ const Home = () => {
     return () => clearInterval(interval);
   }, []);
 
+  // Fallback default suggestions in case backend is unavailable
+  const defaultSuggestions = {
+    "Current Affairs": ["Climate change impacts", "India-China relations", "Budget highlights"],
+    "Polity": ["Constitutional amendments", "Fundamental rights", "Panchayati Raj"],
+    "Economy": ["Monetary policy", "Banking reforms", "Fiscal deficit"],
+  };
+
   // Fetch suggested prompts from backend
   useEffect(() => {
     const fetchSuggestions = async () => {
